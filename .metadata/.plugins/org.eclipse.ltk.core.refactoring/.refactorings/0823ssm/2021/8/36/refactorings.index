@@ -1,0 +1,6 @@
+1630376284807	Delete element
+1630377940246	Delete element
+1630381909182	Rename package 'cn.kevincrud.service'
+1630383223924	Move 'applicationContext-mvc.xml' to 'resources'
+1630383333410	Rename type 'Controller'
+1630393556567	Move 'show.jsp' to 'webapp'

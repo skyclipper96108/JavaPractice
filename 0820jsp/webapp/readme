@@ -1,0 +1,54 @@
+1 servlet三大职责
+	a）接收参数 HttpServletRequest.getParameter("name")
+	b）执行业务逻辑
+	c）跳转 重定向 请求转发
+1. 重定向地址栏会变化，防止数据重复提交，不能携带参数 sendRedirect
+2. 请求转发地址栏不会变化 可以访问web-inf    getRequestDispatcher
+3. jsp的认识
+	jsp底层就是一个servlet，可以写java代码，擅长页面展示
+	<%  %>普通java代码
+	<%= %>把值展示到页面
+	<%！%>定义全局变量
+4. jsp 三大指令
+	a) page页面指令
+	b) include包含指令   制作模板 可以在多个页面上引用 减少工作量
+	c) taglib标签指令
+5. 九大内置对象
+	HttpSerlvletRequest   request 
+	HttpSerlvletResponse  response
+	PageContext    pageContext
+	ServletContext  application
+	ServletConfig   config
+	JspWriter        out
+	Object           page
+	HttpSession   session
+	Throwable     exception
+6. 四大作用域
+	page session request application
+	
+mvc三层架构
+mvc对于后端开发人员不够具体。不知道要写几个类
+
+持久化层：将数据保存在可掉电设备中，数据库持久化=Dao层/数据层=jdbc实现
+	专门与数据库进行交互，不写任何业务逻辑，只写CRUD操作
+业务层：编写业务逻辑if，for循环
+	只写业务逻辑，如果没有业务做跳转连接
+界面层：servlet实现
+	与前台交互，接受请求，处理请求，响应请求，与后台的业务代码交互
+
+三层架构规范【包名、接口名、类名的写法规范】EMP模块
+持久化层/数据层/Dao层：包名：cn.inspur.dao
+										接口名：IEmpDao
+										实现类：impl.EmpDaoImpl implements IEmpDao
+业务层的规范： 包名：cn.inspur.service
+						接口名：IEmpService
+						实现类：impl.EmpServiceImpl implements IEmpService
+界面层的规范：包名：cn.inspur.controller
+						EmpController
+如何写一个功能：将emp表中的数据展示到页面
+						从上到下写代码，从下到上补全代码
+						1. 检查请求和参数/emp/list
+						2. 控制器-Servlet
+						3. Service
+						4. Dao
+

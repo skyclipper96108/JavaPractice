@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间：接口的完全限定名-->
+<mapper namespace="cn.jacob.mybatismapper.mapper.EmpMapper">
+	<!--Emp findOne(Integer id); 参数类型可以不写，返回值类型必须写-->
+	<select id="findOne" resultType="emp">
+		select * from jst1 where id = #{id}
+	</select>
+	
+	<select id="findAll" resultType="emp">
+		select * from jst1
+	</select>
+	
+	<insert id="addEmp">
+		insert into jst1(username, password) values(#{username},#{password})
+	</insert>
+	
+	<delete id="delEmp">
+		delete from jst1 where id = #{id}
+	</delete>
+	
+	<update id="updateEmp">
+		update jst1 set username = #{username},password = #{password} where id = #{id}
+	</update>
+	
+	
+</mapper>

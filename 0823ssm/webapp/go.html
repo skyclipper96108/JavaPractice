@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>主页</title>
+		<style type="text/css">
+			body{
+				background-color: seagreen;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<!--
+        	js:伪协议，不跳转而是执行js代码
+        -->
+		<h1>这样好</h1>
+		<a href="javascript:alert('surprise');">点我出惊喜</a>
+		<!--内部js js标签应该等到所有标签加载完成之后再加载-->
+		<script type="text/javascript">
+			var age = 20;
+			var name = "jb"
+			alert('内部js'+name+age);
+			var isBoy = true;
+			console.debug(typeof isBoy);
+			// 变量名的写法要求，跟java一样 字母、数字、下划线组成，数字不开头
+			// 不建议使用中文，见名知义，遵循驼峰命名法 
+			var sum=0;
+			for(var i=1; i<=100; i++){
+				sum+=i;
+			}
+			console.debug(sum);
+			//js中认为一个变量没有实际意义没有内容全为false
+			var a3 = false;
+			var a4 = new Boolean(false);
+			console.debug(a3===a4);
+			function f1(a,b,c){
+				alert(a);
+			}
+			f1();
+			f1(2,3)
+			//打印到页面
+			document.write(name);
+			//匿名函数
+			var s = function(){alert('匿名');}
+			s();
+			
+		</script>
+	</body>
+</html>

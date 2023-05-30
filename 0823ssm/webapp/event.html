@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>event</title>
+		<style type="text/css">
+			a{
+				color: black;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="alert(this.nodeName)">单击事件</button>
+		<button ondblclick="f1(this)">双击事件</button>
+		<div id="d1" style="width: 150px; height: 150px; background-color: plum;"></div>
+		
+		<label><input type="checkbox" name="hobby" id="badminton" value="badminton"/>羽毛球</label>
+		<label><input type="checkbox" name="hobby" id="basketball" value="basketball"/>篮球</label>
+		<label><input type="checkbox" name="hobby" id="volleyball" value="volleyball"/>排球</label>
+		<br/>
+		<a href="javascript:;">文件(F)</a>&emsp;
+		<a href="javascript:;">编辑(E)</a>
+		<br/>
+		<input id="d2" value="" /><button id="d3"> = </button>
+		<br/>
+		<button id="ws">武松</button>
+		<script type="text/javascript">
+			function f1(t) {
+				alert(t.nodeName);
+			}
+			var div = document.getElementById("d1");
+			div.onmousemove=function(){
+				this.style.backgroundColor="orange";
+			}
+			div.onmouseout=function(){
+				this.style.backgroundColor="plum";
+			}
+			var hobbys = document.getElementsByName("hobby");
+			var inputTag = document.getElementsByTagName("input");
+			
+			var as = document.getElementsByTagName("a");
+			for(var i=0; i<as.length; i++){
+				var a = as[i];
+				a.onmousemove=function(){
+					this.style.backgroundColor="powderblue";
+				}
+				a.onmouseout=function(){
+					this.style.backgroundColor="white";
+				}
+			}
+			var input = document.getElementById("d2");
+			var button = document.getElementById("d3");
+			button.onclick = function(){
+				var str = eval(input.value);
+				input.value=str;
+			}
+			
+			window.setInterval("f1()",5000);
+			function f1() {
+				// 创建button元素
+				btn=document.createElement("button");
+				btn.innerText = "老虎";
+				document.body.appendChild(btn);
+			}
+			document.getElementById("ws").onclick=function(){
+				document.body.removeChild(btn);
+			}
+		</script>
+	</body>
+</html>

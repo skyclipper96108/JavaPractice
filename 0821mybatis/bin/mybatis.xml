@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<properties resource="db.properties">
+
+	</properties>
+	<!-- 配置別名之后，mapper映射文件可以使用類名 -->
+	<typeAliases>
+		<package name="cn.jacob.mybatismapper.domain"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<!--可以配置多个环境 默认使用id为development的环境 -->
+		<environment id="development">
+			<!--支持JDBC事务 -->
+			<transactionManager type="JDBC" />
+
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="cn/jacob/mybatismapper/mapper/EmpMapper.xml" />
+	</mappers>
+</configuration>

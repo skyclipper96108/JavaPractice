@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间：接口的完全限定名-->
+<mapper namespace="cn.armand.mapper.EmpMapper">
+	<select id="findAll" resultType="Emp">
+		select * from emp
+	</select>
+	
+	
+	<select id="findByCondition" resultType="Emp">
+		select * from emp
+		<!-- where标签的第一个作用，动态地添加一个where 并自动空一格 自动将第一个and或or去掉 -->
+		<where>
+		<if test="deptno!=null">
+			 and deptno = #{deptno}
+		</if>
+		<if test='ename!=null and ename.trim()!=" "'>
+			and ename like concat("%", trim(#{ename}), "%")
+		</if>
+		<!-- concat()和trim()是mysql的函数，一个是拼接字符串，一个是去掉两端的空白 -->
+		<if test='address!=null and address.trim()!=" "'>
+			and address like concat("%", trim(#{address}), "%")
+		</if>
+		<if test="sal!=null">
+			<choose>
+				<when test="sal==3000.0">and sal&lt;#{sal}</when>
+				<when test="sal==5000.0">and sal&gt;=#{sal}-2000 and sal&lt;#{sal}</when>
+				<when test="sal==8000.0">and sal&gt;=#{sal}-3000 and sal&lt;#{sal}</when>
+				<when test="sal==8001.0">and sal&gt;=#{sal}-1</when>
+			</choose>
+		</if>
+		</where>
+	</select>
+	
+	<select id="findOne" resultType="Empp">
+		select * from empp where eid=#{eid}
+	</select>
+	
+	<select id="findAllp" resultType="Empp">
+		select * from empp
+	</select>
+	
+	<insert id="addEmpp">
+		insert into empp(ename,sex,address,tel,card)
+		values(#{ename},#{sex},#{address},#{tel},#{card})
+	</insert>
+	
+	<delete id="delEmpp">
+		delete from empp where eid=#{eid}
+	</delete>
+	
+	<update id="updateEmpp">
+		update empp set ename=#{ename}, sex=#{sex}, address=#{address},tel=#{tel},card=#{card} where eid=#{eid}
+	</update>
+</mapper>

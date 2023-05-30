@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		省：
+		<select id="provinceSelect" onchange="getCity(this)">
+			<option value="">--请选择--</option>
+		</select>
+		市：
+		<select id="citySelect">
+			<option value="">--请选择--</option>
+		</select>
+		
+		
+		
+		
+		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			$("body").css("background-color","skyblue");
+			//JS的页面加载函数=入口函数当整个页面加载完成执行
+			window.onload=function(){
+				alert(111);
+			}
+			// jQuery的页面加载函数，只要元素和属性加载完成之后就执行
+			$(function(){
+				//页面一加载，就去加载所有的省
+				$.post("/get/province",function(data){
+					$(data).each(function(){
+						$("#provinceSelect").append("<option value="+this.id+">"+this.name+"</option>");
+					});
+				},"json");
+			});
+			function getCity(t){
+				//先清空再添加
+				$("#citySelect").html('<option value="">--请选择--</option>');
+				var id = $(t).val();
+				$.post("/get/city",{"id":id},function(data){
+					$(data).each(function(){
+						$("#citySelect").append("<option value="+this.id+">"+this.name+"</option>");
+					});
+				},"json");
+			}
+			
+		</script>
+	</body>
+</html>
