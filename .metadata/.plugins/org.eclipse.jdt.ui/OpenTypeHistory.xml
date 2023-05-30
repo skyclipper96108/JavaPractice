@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=0824csm/src\/main\/java&lt;cn.armand.service{IArticleService.java[IArticleService" modifiers="513" timestamp="1631929848905"/>
-    <typeInfo handle="=0824csm/src\/main\/java&lt;cn.armand.service{ISlideService.java[ISlideService" modifiers="513" timestamp="1632301776528"/>
-    <typeInfo handle="=0824csm/src\/main\/java&lt;cn.armand.query{BaseQuery.java[BaseQuery" modifiers="1" timestamp="1631265234430"/>
-    <typeInfo handle="=0824csm/src\/main\/java&lt;cn.armand.service{IUserService.java[IUserService" modifiers="513" timestamp="1632374943172"/>
-    <typeInfo handle="=0824csm/src\/main\/webapp\/WEB-INF\/lib\/spring-webmvc-4.1.2.RELEASE.jar&lt;org.springframework.web.servlet(HandlerInterceptor.class[HandlerInterceptor" modifiers="1537" timestamp="1631947588584"/>
-    <typeInfo handle="=0824csm/src\/main\/webapp\/WEB-INF\/lib\/spring-webmvc-4.1.2.RELEASE.jar&lt;org.springframework.web.servlet(HandlerAdapter.class[HandlerAdapter" modifiers="1537" timestamp="1631947588584"/>
-</typeInfoHistroy>
