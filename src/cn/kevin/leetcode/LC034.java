@@ -10,32 +10,47 @@ package cn.kevin.leetcode;
 public class LC034 {
     public int[] searchRange(int[] nums, int target) {
         int lens = nums.length;
-        if(nums[0]>target||nums[nums.length-1]<target){
+        if(lens==0||nums[0]>target||nums[nums.length-1]<target){
             return new int[]{-1,-1};
         }
-        int left = findLeftBorder(nums,0,lens,target);
+        int left = findLeftBorder(nums,-1,lens-1,target);
         int right = findRightBorder(nums,0,lens,target);
+        if(left<lens-1&&nums[left+1]==target){
+            left=left+1;
+        }else {
+            left=-1;
+        }
+        if(right>0&&nums[right-1]==target){
+            right=right-1;
+        }else {
+            right=-1;
+        }
         return new int[]{left,right};
     }
-
+    //大于target最小索引
     private int findRightBorder(int[] nums, int l, int r, int target) {
-        return -1;
-    }
-
-    private int findLeftBorder(int[] nums,int l, int r, int target) {
-        while(l<=r) {
-            int mid = l+(l-r)/2;
-            if(nums[mid]==target){
-
-                return mid;
-            }else if(nums[mid]<target){
+        while (l<r){
+            int mid = l+(r-l)/2;
+            if(nums[mid]<=target){
                 l=mid+1;
-            }
-            else {
-                r = mid-1;
+            }else {
+                r=mid;
             }
         }
-        return -1;
+        return l;
+    }
+
+    //小于target最大索引
+    private int findLeftBorder(int[] nums,int l, int r, int target) {
+        while(l<r) {
+            int mid = l+(r-l+1)/2;
+            if(nums[mid]>=target){
+                r=mid-1;
+            }else {
+                l=mid;
+            }
+        }
+        return r;
     }
 
 
