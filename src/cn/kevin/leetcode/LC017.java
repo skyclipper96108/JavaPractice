@@ -12,7 +12,7 @@ import java.util.Map;
  *
  */
 public class LC017 {
-    private static final Map<Character, String> dict = new HashMap<>(){{
+    private static final Map<Character, String> dict = new HashMap<Character, String>(){{
         put('0', " ");
         put('1', "");
         put('2', "abc");
