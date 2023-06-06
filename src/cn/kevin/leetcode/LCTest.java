@@ -20,4 +20,12 @@ public class LCTest {
 		System.out.println(i);
 	}
 
+	@Test
+	public void test2352() {
+		LC2352 lc = new LC2352();
+		int[][] l = new int[][]{{3,2,1},{1,7,6},{2,7,7}};
+		int i = lc.equalPairs(l);
+		System.out.println(i);
+	}
+
 }
