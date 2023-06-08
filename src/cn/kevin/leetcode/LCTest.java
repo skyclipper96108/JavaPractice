@@ -24,6 +24,14 @@ public class LCTest {
 	}
 
 	@Test
+	public void test53() {
+		LC053 lc = new LC053();
+		int[] l = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+		int i = lc.maxSubArray(l);
+		System.out.println(i);
+	}
+
+	@Test
 	public void test2611() {
 		LC2611 lc = new LC2611();
 //		int[][] l = new int[][]{{3,2,1},{1,7,6},{2,7,7}};
