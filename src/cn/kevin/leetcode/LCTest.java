@@ -8,8 +8,8 @@ public class LCTest {
 
 	@Test
 	public void test28() {
-		LC028 lc = new LC028();
-		int i = lc.divide(-2147483648,-1);
+		LC005 lc = new LC005();
+		String i = lc.longestPalindrome("aaaa");
 		System.out.println(i);
 	}
 
