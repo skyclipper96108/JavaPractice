@@ -41,4 +41,11 @@ public class LCTest {
 		System.out.println(i);
 	}
 
+	@Test
+	public void testEasy() {
+		LCEASY lc = new LCEASY();
+		int i = lc.numTrees(3);
+		System.out.println(i);
+	}
+
 }
