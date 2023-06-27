@@ -2,7 +2,7 @@ package cn.kevin.leetcode;
 
 import org.junit.Test;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class LCTest {
 
@@ -17,10 +17,10 @@ public class LCTest {
 
 	@Test
 	public void test54() {
-		LC054 lc = new LC054();
-		int[][] l = new int[][]{{3,2,1}};
-		List<Integer> integers = lc.spiralOrder(l);
-		System.out.println(integers.toString());
+		LC056 lc = new LC056();
+		int[][] l = new int[][]{{1,3},{2,6},{8,10},{15,18}};
+		int[][] merge = lc.merge(l);
+		System.out.println(Arrays.deepToString(merge));
 	}
 
 	@Test
