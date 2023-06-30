@@ -1,7 +1,6 @@
 package cn.kevin.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class LC095 {
     public class TreeNode {
@@ -116,5 +115,100 @@ public class LC095 {
         return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right);
 
     }
+
+
+    public boolean isSymmetric(TreeNode root) {
+
+        return isChildSymmetric(root.left,root.right);
+    }
+
+    private boolean isChildSymmetric(TreeNode left, TreeNode right) {
+        if(left==null&&right==null){
+            return true;
+        }
+        if(left==null||right==null){
+            return false;
+        }
+        if (left.val!=right.val){
+            return false;
+        }
+        return isChildSymmetric(left.left,right.right)&&isChildSymmetric(left.right,right.left);
+    }
+
+
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        getLevelOrder(res,queue);
+        return res;
+    }
+
+    private void getLevelOrder(List<List<Integer>> res, Queue<TreeNode> queue) {
+        Queue<TreeNode> queue2 = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
+        while (!queue.isEmpty()){
+            TreeNode poll = queue.poll();
+            if(poll!=null){
+                list.add(poll.val);
+                queue2.offer(poll.left);
+                queue2.offer(poll.right);
+            }
+        }
+        if(!queue2.isEmpty()){
+            res.add(list);
+            getLevelOrder(res,queue2);
+        }
+    }
+
+
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        Stack<TreeNode> queue = new Stack<>();
+        queue.add(root);
+        getLevelOrder1(res,queue,1);
+        return res;
+    }
+
+    private void getLevelOrder1(List<List<Integer>> res, Stack<TreeNode> queue, int i) {
+        Stack<TreeNode> queue2 = new Stack<>();
+        List<Integer> list = new ArrayList<>();
+        if(i==1){
+            while (!queue.isEmpty()){
+                TreeNode poll = queue.pop();
+                if(poll!=null){
+                    list.add(poll.val);
+                    queue2.add(poll.left);
+                    queue2.add(poll.right);
+                }
+            }
+            i=0;
+        }else {
+            while (!queue.isEmpty()){
+                TreeNode poll = queue.pop();
+                if(poll!=null){
+                    list.add(poll.val);
+                    queue2.add(poll.right);
+                    queue2.add(poll.left);
+                }
+            }
+            i=1;
+        }
+
+        if(!queue2.isEmpty()){
+            res.add(list);
+            getLevelOrder1(res,queue2,i);
+        }
+    }
+
+    public int maxDepth(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+    }
+
+
 
 }

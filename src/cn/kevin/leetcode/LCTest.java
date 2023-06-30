@@ -3,6 +3,8 @@ package cn.kevin.leetcode;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LCTest {
 
@@ -25,10 +27,13 @@ public class LCTest {
 
 	@Test
 	public void test53() {
-		LC053 lc = new LC053();
-		int[] l = new int[]{-2,1,-3,4,-1,2,1,-5,4};
-		int i = lc.maxSubArray(l);
-		System.out.println(i);
+		HashMap<String, String > map1  = new HashMap<String, String>(){{
+			put("a","b");
+			put("b","b");
+		}};
+		Map<Object, String> map2 = new HashMap<>();
+		System.out.println(map1.getClass());
+		System.out.println(map2.getClass());
 	}
 
 	@Test
