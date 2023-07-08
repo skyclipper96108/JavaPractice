@@ -4,10 +4,25 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        StringBuilder s =new StringBuilder();
-        s.append("a".repeat(1000));
+        Scanner s = new Scanner(System.in);
+        String s1 = s.nextLine();
         System.out.println(s);
-        System.out.println(findLongestLine(s.toString()));
+        System.out.println(findCharater(s1));
+    }
+
+    private static String findCharater(String s1) {
+        char[] chars = s1.toCharArray();
+        Map<Integer, Character> map = new HashMap<>();
+        for(int i=0;i<chars.length;i++){
+            if(!map.containsKey(chars[i]-'a')){
+                map.put(chars[i]-'a',chars[i]);
+            }
+        }
+        List<Integer> k = new ArrayList<>(map.keySet());
+        Collections.sort(k);
+        StringBuilder builder = new StringBuilder();
+        k.forEach(i->builder.append(map.get(i)));
+        return builder.toString();
     }
 
     private static String findLongestLine(String s) {
@@ -30,5 +45,9 @@ public class test {
         }
         return res;
     }
+
+
+
+
 
 }
