@@ -38,11 +38,9 @@ public class LCTest {
 
 	@Test
 	public void test2611() {
-		LC2611 lc = new LC2611();
-//		int[][] l = new int[][]{{3,2,1},{1,7,6},{2,7,7}};
-		int[] l1 = new int[]{2,1};
-		int[] l2 = new int[]{1,2};
-		int i = lc.miceAndCheese(l1,l2,1);
+		LC2532 lc = new LC2532();
+		int[][] l = new int[][]{{1,9,1,8},{10,10,10,10}};
+		int i = lc.findCrossingTime(3,2,l);
 		System.out.println(i);
 	}
 
