@@ -5,7 +5,7 @@ import cn.stack.Queue;
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 	private MaxHeap<E> maxHeap;
 	public PriorityQueue() {
-		maxHeap = new MaxHeap<>();
+		maxHeap = new MaxHeap<E>();
 	}
 	@Override
 	public int getSize() {
