@@ -41,7 +41,7 @@ public class SegmentTree<E> {
 			throw new IllegalArgumentException("Index is illegal");
 		return data[index];
 	}
-//	返回完全二叉树的数组表示中，索引表示的左右孩子的的索引
+	//	返回完全二叉树的数组表示中，索引表示的左右孩子的的索引
 	private int leftChild(int index) {
 		return 2*index+1;
 	}
