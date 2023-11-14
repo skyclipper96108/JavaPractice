@@ -10,8 +10,9 @@ public class LCTest {
 
 	@Test
 	public void test28() {
-		LC005 lc = new LC005();
-		String i = lc.longestPalindrome("aaaa");
+		LC1334 lc = new LC1334();
+		int[][] l = new int[][]{{0,1,2},{0,4,8},{1,2,3},{1,4,2},{2,3,1},{3,4,1}};
+		int i = lc.findTheCity(5,l,2);
 		System.out.println(i);
 	}
 
