@@ -38,11 +38,11 @@ public class LCTest {
 	}
 
 	@Test
-	public void test2611() {
-		LC2532 lc = new LC2532();
-		int[][] l = new int[][]{{1,9,1,8},{10,10,10,10}};
-		int i = lc.findCrossingTime(3,2,l);
-		System.out.println(i);
+	public void test0162() {
+		LC0162 lc = new LC0162();
+		int[][] l = new int[][]{{10,50,40,30,20},{1,500,2,3,4}};
+		int[] peakGrid = lc.findPeakGrid(l);
+		System.out.println(Arrays.toString(peakGrid));
 	}
 
 	@Test
