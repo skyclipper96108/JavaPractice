@@ -52,4 +52,11 @@ public class LCTest {
 		System.out.println(i);
 	}
 
+	@Test
+	public void testCase() {
+		String t1 = "2023-07-15";
+		String t2 = "2023-12-15";
+		System.out.println(t1.compareTo(t2));
+	}
+
 }
