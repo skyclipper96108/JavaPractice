@@ -27,6 +27,14 @@ public class LCTest {
 	}
 
 	@Test
+	public void test2360() {
+		LC2360 lc = new LC2360();
+		int[] n = new int[]{993335,993336,993337,993338,993339,993340,993341};
+		boolean b = lc.validPartition(n);
+		System.out.println(b);
+	}
+
+	@Test
 	public void test53() {
 		HashMap<String, String > map1  = new HashMap<String, String>(){{
 			put("a","b");
