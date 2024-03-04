@@ -35,14 +35,10 @@ public class LCTest {
 	}
 
 	@Test
-	public void test53() {
-		HashMap<String, String > map1  = new HashMap<String, String>(){{
-			put("a","b");
-			put("b","b");
-		}};
-		Map<Object, String> map2 = new HashMap<>();
-		System.out.println(map1.getClass());
-		System.out.println(map2.getClass());
+	public void test69() {
+		LC069 lc = new LC069();
+		int i = lc.mySqrt(2147395599);
+		System.out.println(i);
 	}
 
 	@Test

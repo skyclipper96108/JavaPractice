@@ -7,7 +7,7 @@ package cn.kevin.leetcode;
  * 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
  */
 public class LC009 {
-    public boolean isPalindrome(int x) {
+    public boolean isPalindrome2(int x) {
         if(x<0){
             return false;
         }
@@ -19,5 +19,19 @@ public class LC009 {
             x/=10;
         }
         return res==p;
+    }
+
+    public boolean isPalindrome(String s) {
+        String str = s.replaceAll("[^a-zA-Z0-9]", "");
+        int n = str.length();
+        int l = 0, r=n-1;
+        while(l<r){
+            if(Character.toLowerCase(str.charAt(l))!=Character.toLowerCase(str.charAt(r))){
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
     }
 }
