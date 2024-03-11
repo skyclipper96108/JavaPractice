@@ -307,6 +307,39 @@ public class LCEASY {
         return -1;
     }
 
+    /**
+     * 给你一个字符串 title ，它由单个空格连接一个或多个单词组成，每个单词都只包含英文字母。请你按以下规则将每个单词的首字母 大写 ：
+     *
+     * 如果单词的长度为 1 或者 2 ，所有字母变成小写。
+     * 否则，将单词首字母大写，剩余字母变成小写。
+     * 请你返回 大写后 的 title 。
+     */
+    public String capitalizeTitle(String title) {
+        String[] strings = title.split(" ");
+        StringBuilder res = new StringBuilder();
+        for(String s:strings){
+            if(s.length()>2){
+                s=handleCapitalize(s);
+            }else {
+                s=s.toLowerCase();
+            }
+            if(res.length()>0){
+                res.append(" ");
+            }
+            res.append(s);
+        }
+        return res.toString();
+    }
+
+    private String handleCapitalize(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+        String firstChar = str.substring(0, 1).toUpperCase();
+        String remainingStr = str.substring(1).toLowerCase();
+        return firstChar + remainingStr;
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;
